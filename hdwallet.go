@@ -3,8 +3,6 @@
  *	and it is based on the BIP-32 (Bitcoin Improvement Proposal), BIP-39, etc.
  *
  *	Last modified date: 	December 12th 2018
- *	Author: 				Jason You
- *	License:				MIT License
  */
 
 
@@ -325,7 +323,7 @@ func (w *Wallet) Derive(path accounts.DerivationPath, pin bool) (accounts.Accoun
 		Address: address,
 		URL: accounts.URL {
 			Scheme: 	"",
-			Path: 		path.String(),		// debug: remove the comma?
+			Path: 		path.String(),		// the comma in here is necessary for multi-line
 		},
 	}
 
@@ -514,7 +512,7 @@ func (w *Wallet) PublicKeyHex(account accounts.Account) (string, error) {
 	// 			Every EC public key begins with the 0x04 prefix before giving the location
 	// 			of the two points on the curve. We need to remove this leading 0x04 byte
 	// 			in order to hash it correctly.
-	return hexutil.Encode(publicKeyBytes)[:4], nil
+	return hexutil.Encode(publicKeyBytes)[4:], nil
 }
 
 /*
@@ -556,6 +554,15 @@ func (w *Wallet) Path(account accounts.Account) (string, error) {
 */
 func ParseDerivationPath(path string) (accounts.DerivationPath, error) {
 	return accounts.ParseDerivationPath(path)
+}
+
+/*
+	Same as the ParseDerivationPath(path string), but will be panic to any error
+*/
+func StrictParseDerivationPath(path string) accounts.DerivationPath {
+	parsed, err := accounts.ParseDerivationPath(path)
+	if err != nil { panic(err) }
+	return parsed
 }
 
 /*
