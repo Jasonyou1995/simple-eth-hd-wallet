@@ -15,7 +15,7 @@
 * Used for storing the *public* and *private* key pairs of different cryptocurrencies.
 * Wallet can also be the platform or interface that be used for interacting with Decentralized Applications (DAPPs).
 	* This is accomplished by creating, signing and broadcasting transactions that include smart contracts (or chaincode as called in Hyperledger) to update the states of decentralized applications (DAPPs) on some state machines built on blockchain, such as the *EVM* we used in Ethereum blockchain platform.
-	* The Ethereum Virtual Machine (EVM) is a 256-bit Turing complete Virtual Machine that allows anyone to run Byte Code on it, which is also part of the Ethereum Protocal.
+	* The Ethereum Virtual Machine (EVM) is a 256-bit Turing complete Virtual Machine that allows anyone to run Byte Code on it, which is also part of the Ethereum Protocol.
 
 ### Wallet Types
 
