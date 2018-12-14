@@ -66,6 +66,9 @@ Normally all words are created randomly and presented to user after generated. (
 * [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki): Multi-Account Hierarchy for Deterministic Wallets
 * [BIP-70](https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki): Payment Protocol
 * [BIP-75](https://github.com/bitcoin/bips/blob/master/bip-0075.mediawiki): Out of Band Address Exchange using Payment Protocol Encryption
+* [BIP-115](https://github.com/bitcoin/bips/blob/master/bip-0115.mediawiki): Generic anti-replay protection using Script
+* [EIP-55](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md): Mixed-case checksum address encoding
+* [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md): Simple replay attack protection
 
 ### Github Repos
 
