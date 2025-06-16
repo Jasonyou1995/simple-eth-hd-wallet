@@ -1,0 +1,88 @@
+# Task ID: 2
+# Title: Implement Core Cryptographic Engine
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Develop the high-performance core cryptographic engine that will handle all cryptographic operations with memory safety and secure cleanup.
+# Details:
+1. Create a core cryptographic package with interfaces for all required operations
+2. Implement secure random number generation with entropy validation
+3. Implement AES-256-GCM for symmetric encryption
+4. Implement RSA-4096 and ECDSA P-384 for asymmetric operations
+5. Ensure constant-time implementations to prevent timing attacks
+6. Implement secure memory handling with zeroing after use
+7. Add hardware acceleration detection and utilization
+8. Implement PBKDF2 with 100,000+ iterations for key derivation
+9. Create benchmarking utilities for performance testing
+10. Ensure thread-safety for concurrent operations
+
+Example interface:
+```go
+type CryptoEngine interface {
+  GenerateRandomBytes(length int) ([]byte, error)
+  EncryptAESGCM(key, plaintext, additionalData []byte) ([]byte, error)
+  DecryptAESGCM(key, ciphertext, additionalData []byte) ([]byte, error)
+  GenerateRSAKeyPair(bits int) (*RSAKeyPair, error)
+  GenerateECDSAKeyPair(curve elliptic.Curve) (*ECDSAKeyPair, error)
+  // Additional methods for other cryptographic operations
+}
+```
+
+# Test Strategy:
+1. Comprehensive unit tests with >95% coverage
+2. Cryptographic correctness tests against known test vectors
+3. Timing attack resistance tests
+4. Memory leak and secure cleanup verification
+5. Performance benchmarks to ensure operations meet requirements (<100ms for key generation, <10ms for signatures)
+6. Fuzz testing for input validation
+7. Verify against NIST test vectors where applicable
+
+# Subtasks:
+## 1. Implement secure random number generation [pending]
+### Dependencies: None
+### Description: Develop a cryptographically secure random number generator that uses system entropy sources and follows best practices for unpredictability.
+### Details:
+Implement CSPRNG that: 1) Uses OS-provided entropy sources (e.g., /dev/urandom, BCryptGenRandom, etc.), 2) Implements proper seeding mechanisms, 3) Provides both blocking and non-blocking interfaces, 4) Includes self-tests to verify entropy quality, 5) Handles entropy exhaustion gracefully.
+
+## 2. Implement symmetric encryption primitives [pending]
+### Dependencies: 2.1
+### Description: Develop implementations for AES-GCM, ChaCha20-Poly1305, and other modern symmetric encryption algorithms with proper authenticated encryption.
+### Details:
+Create modular implementations that: 1) Support key sizes of 128, 192, and 256 bits, 2) Implement authenticated encryption with associated data (AEAD), 3) Handle nonce generation and management, 4) Include proper padding schemes, 5) Provide streaming and buffer-based interfaces.
+
+## 3. Implement asymmetric cryptography operations [pending]
+### Dependencies: 2.1
+### Description: Develop implementations for RSA, ECC (including Curve25519/Ed25519), and key exchange protocols.
+### Details:
+Implement: 1) RSA encryption/decryption with OAEP padding, 2) RSA signature generation/verification with PSS, 3) ECDH key exchange, 4) EdDSA signatures, 5) Key generation for all supported algorithms, 6) Proper parameter validation for all operations.
+
+## 4. Develop constant-time implementations for critical operations [pending]
+### Dependencies: 2.2, 2.3
+### Description: Ensure all cryptographic operations are implemented in constant time to prevent timing attacks.
+### Details:
+1) Implement constant-time comparison functions, 2) Ensure all conditional operations on secret data use constant-time techniques, 3) Avoid table lookups with secret-dependent indices, 4) Implement blinding techniques for RSA operations, 5) Create test suite to verify constant-time behavior.
+
+## 5. Implement secure memory handling for cryptographic operations [pending]
+### Dependencies: 2.2, 2.3
+### Description: Develop memory management utilities that securely allocate, use, and clear sensitive cryptographic material.
+### Details:
+Create utilities that: 1) Allocate memory pages with proper protections, 2) Implement secure zeroing that won't be optimized away by compilers, 3) Lock sensitive memory to prevent swapping, 4) Detect and prevent buffer overflows, 5) Implement canaries to detect memory corruption.
+
+## 6. Integrate hardware acceleration for cryptographic operations [pending]
+### Dependencies: 2.2, 2.3
+### Description: Leverage platform-specific hardware acceleration (AES-NI, NEON, AVX) for improved performance of cryptographic operations.
+### Details:
+1) Detect available hardware acceleration features at runtime, 2) Implement optimized versions of AES using AES-NI, 3) Use SIMD instructions for ChaCha20, 4) Optimize ECC operations with vector instructions, 5) Implement fallbacks for platforms without hardware acceleration.
+
+## 7. Implement key derivation and password hashing functions [pending]
+### Dependencies: 2.1, 2.2
+### Description: Develop implementations for PBKDF2, Argon2, scrypt, and HKDF for secure key derivation and password storage.
+### Details:
+Implement: 1) Argon2id with configurable parameters, 2) PBKDF2 with various hash functions, 3) scrypt with proper parameter validation, 4) HKDF for key expansion, 5) Utilities for secure password verification in constant time.
+
+## 8. Develop comprehensive benchmarking and validation suite [pending]
+### Dependencies: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7
+### Description: Create a suite of tests to validate correctness, performance, and security properties of all cryptographic implementations.
+### Details:
+Create: 1) Known-answer tests using test vectors from standards, 2) Performance benchmarks for all operations, 3) Memory usage analysis, 4) Timing analysis to verify constant-time implementations, 5) Interoperability tests with other libraries, 6) Stress tests for error conditions and edge cases.
+

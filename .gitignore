@@ -1,25 +1,90 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-dev-debug.log
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-# Dependency directories
-node_modules/
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Environment variables
 .env
+.env.local
+.env.*.local
 
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Logs
+*.log
+logs/
 
-# OS specific
-.DS_Store
+# Temporary files
+tmp/
+temp/
+
+# Build outputs
+build/
+dist/
+bin/
+
+# Certificates and keys (for local development)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Configuration files that might contain secrets
+config/local.yaml
+config/dev.yaml
+config/production.yaml
+
+# Test coverage
+coverage.out
+coverage.html
+cover.html
+
+# Profiling data
+*.prof
+cpu.prof
+mem.prof
+
+# Documentation build
+docs/_build/
+site/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Binary releases
+release/
+
+# Local development files
+.local/
+local/
