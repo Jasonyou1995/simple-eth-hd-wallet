@@ -17,7 +17,7 @@
             "description": "Create the Git repository, set up the basic directory structure, and configure initial project files.",
             "dependencies": [],
             "details": "1. Create a new Git repository\n2. Set up README.md with project overview\n3. Create .gitignore file for Python/Node.js/etc. as needed\n4. Establish basic directory structure (src, tests, docs, etc.)\n5. Add LICENSE file\n6. Configure initial package.json or requirements.txt as appropriate\n7. Create initial commit",
-            "status": "in-progress"
+            "status": "done"
           },
           {
             "id": 2,
@@ -27,7 +27,7 @@
               1
             ],
             "details": "1. Create architecture overview document\n2. Design component interaction diagrams\n3. Document data flow between services\n4. Define API contracts and interfaces\n5. Document technology stack choices with rationales\n6. Create system constraint documentation\n7. Add architecture diagrams (UML, C4 model, etc.)",
-            "status": "pending"
+            "status": "in-progress"
           },
           {
             "id": 3,
@@ -1865,7 +1865,7 @@
     ],
     "metadata": {
       "created": "2025-06-16T03:33:47.176Z",
-      "updated": "2025-06-16T04:01:38.754Z",
+      "updated": "2025-06-16T14:12:13.284Z",
       "description": "Tasks for master context"
     }
   }
