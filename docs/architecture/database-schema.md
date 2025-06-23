@@ -534,8 +534,8 @@ CREATE INDEX idx_system_events_component ON system_events(component);
 
 ```sql
 -- Partition audit_logs by month for better performance
-CREATE TABLE audit_logs_y2024m06 PARTITION OF audit_logs
-FOR VALUES FROM ('2024-06-01') TO ('2024-07-01');
+CREATE TABLE audit_logs_y2025m06 PARTITION OF audit_logs
+FOR VALUES FROM ('2025-06-01') TO ('2025-07-01');
 
 -- Partition system_events by severity and date
 CREATE TABLE system_events_critical PARTITION OF system_events
@@ -638,7 +638,7 @@ CREATE TABLE schema_migrations (
 ---
 
 **Document Version**: 1.0  
-**Last Updated**: June 16, 2024  
-**Next Review**: September 16, 2024  
+**Last Updated**: June 16, 2025  
+**Next Review**: September 16, 2025  
 **Owner**: Database Team  
 **Approvers**: Architecture Team, Security Team

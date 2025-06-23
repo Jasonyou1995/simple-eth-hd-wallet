@@ -17,7 +17,7 @@ A hierarchical deterministic (HD) wallet CLI for Ethereum key management, implem
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/simple-eth-hd-wallet.git
+git clone https://github.com/Jasonyou1995/simple-eth-hd-wallet.git
 cd simple-eth-hd-wallet
 
 # Build the application

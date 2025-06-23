@@ -470,7 +470,7 @@ FROM scratch AS runtime
 ---
 
 **Document Version**: 1.0  
-**Last Updated**: June 16, 2024  
-**Next Review**: September 16, 2024  
+**Last Updated**: June 16, 2025  
+**Next Review**: September 16, 2025  
 **Owner**: Architecture Team  
 **Approvers**: Security Team, Engineering Leadership

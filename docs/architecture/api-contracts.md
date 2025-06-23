@@ -33,7 +33,7 @@ This document defines the API contracts and interfaces for the Secure Key Manage
     "details": { /* additional error context */ }
   },
   "metadata": {
-    "timestamp": "2024-06-16T12:00:00Z",
+    "timestamp": "2025-06-16T12:00:00Z",
     "requestId": "uuid",
     "version": "v1"
   }
@@ -120,7 +120,7 @@ This document defines the API contracts and interfaces for the Secure Key Manage
     "key_type": "rsa",
     "key_size": 2048,
     "fingerprint": "sha256_hash",
-    "created_at": "2024-06-16T12:00:00Z",
+    "created_at": "2025-06-16T12:00:00Z",
     "expires_at": "2025-06-16T12:00:00Z",
     "status": "active",
     "metadata": {
@@ -191,7 +191,7 @@ This document defines the API contracts and interfaces for the Secure Key Manage
     "blockchain": "ethereum",
     "master_public_key": "xpub...",
     "derivation_path": "m/44'/60'/0'/0",
-    "created_at": "2024-06-16T12:00:00Z",
+    "created_at": "2025-06-16T12:00:00Z",
     "address_count": 0,
     "mnemonic": "word1 word2 ... word12", // Only returned on creation
     "metadata": {
@@ -259,7 +259,7 @@ This document defines the API contracts and interfaces for the Secure Key Manage
     "signature_id": "uuid",
     "algorithm": "ECDSA-SHA256",
     "format": "asn1",
-    "created_at": "2024-06-16T12:00:00Z",
+    "created_at": "2025-06-16T12:00:00Z",
     "key_id": "uuid",
     "data_hash": "sha256_hash"
   }
@@ -355,7 +355,7 @@ This document defines the API contracts and interfaces for the Secure Key Manage
     "logs": [
       {
         "event_id": "uuid",
-        "timestamp": "2024-06-16T12:00:00Z",
+        "timestamp": "2025-06-16T12:00:00Z",
         "event_type": "key_generation",
         "user_id": "uuid",
         "resource_id": "uuid",
@@ -396,7 +396,7 @@ This document defines the API contracts and interfaces for the Secure Key Manage
   "success": true,
   "data": {
     "status": "healthy|degraded|unhealthy",
-    "timestamp": "2024-06-16T12:00:00Z",
+    "timestamp": "2025-06-16T12:00:00Z",
     "version": "1.0.0",
     "components": {
       "database": {
@@ -558,11 +558,11 @@ System Errors (9000-9999)
     "message": "The specified key was not found",
     "details": {
       "key_id": "uuid",
-      "requested_at": "2024-06-16T12:00:00Z"
+      "requested_at": "2025-06-16T12:00:00Z"
     }
   },
   "metadata": {
-    "timestamp": "2024-06-16T12:00:00Z",
+    "timestamp": "2025-06-16T12:00:00Z",
     "requestId": "uuid",
     "version": "v1"
   }
@@ -619,7 +619,7 @@ System Errors (9000-9999)
 ---
 
 **Document Version**: 1.0  
-**Last Updated**: June 16, 2024  
-**Next Review**: September 16, 2024  
+**Last Updated**: June 16, 2025  
+**Next Review**: September 16, 2025  
 **Owner**: API Team  
 **Approvers**: Architecture Team, Security Team
