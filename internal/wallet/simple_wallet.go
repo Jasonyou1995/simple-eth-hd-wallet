@@ -92,25 +92,35 @@ func DefaultConfig() *WalletConfig {
 	return &WalletConfig{}
 }
 
-// Simple BIP-39 word list (subset for demo purposes)
-var bip39WordList = []string{
-	"abandon", "ability", "able", "about", "above", "absent", "absorb", "abstract",
-	"absurd", "abuse", "access", "accident", "account", "accurate", "achieve", "acid",
-	"acoustic", "acquire", "across", "action", "actor", "actress", "actual", "adapt",
-	"add", "addict", "address", "adjust", "admit", "adult", "advance", "advice",
-	"aerobic", "affair", "afford", "afraid", "again", "against", "age", "agent",
-	"agree", "ahead", "aim", "air", "airport", "aisle", "alarm", "album",
-	"alcohol", "alert", "alien", "all", "alley", "allow", "almost", "alone",
-	"alpha", "already", "also", "alter", "always", "amateur", "amazing", "among",
-	// ... more words would go here in a full implementation
+// bip39WordMap provides fast lookup for word validation
+var bip39WordMap map[string]int
+
+// init initializes the BIP-39 word map for fast validation
+func init() {
+	bip39WordMap = make(map[string]int, len(BIP39WordList))
+	for i, word := range BIP39WordList {
+		bip39WordMap[word] = i
+	}
 }
 
-// validateMnemonic performs basic validation of a mnemonic phrase
+// validateMnemonic performs comprehensive BIP-39 validation of a mnemonic phrase
 func validateMnemonic(mnemonic string) bool {
 	words := strings.Fields(mnemonic)
-	// Basic validation: 12, 15, 18, 21, or 24 words
+
+	// Validate word count (BIP-39 standard: 12, 15, 18, 21, or 24 words)
 	wordCount := len(words)
-	return wordCount == 12 || wordCount == 15 || wordCount == 18 || wordCount == 21 || wordCount == 24
+	if wordCount != 12 && wordCount != 15 && wordCount != 18 && wordCount != 21 && wordCount != 24 {
+		return false
+	}
+
+	// Validate each word exists in the BIP-39 word list
+	for _, word := range words {
+		if _, exists := bip39WordMap[word]; !exists {
+			return false
+		}
+	}
+
+	return true
 }
 
 // generateSeedFromMnemonic creates a seed from a mnemonic phrase
@@ -212,8 +222,8 @@ func GenerateMnemonic(entropyBits int) (string, error) {
 	words := make([]string, wordCount)
 	for i := 0; i < wordCount; i++ {
 		// Use entropy to select words
-		wordIndex := int(entropy[i%len(entropy)]) % len(bip39WordList)
-		words[i] = bip39WordList[wordIndex]
+		wordIndex := int(entropy[i%len(entropy)]) % len(BIP39WordList)
+		words[i] = BIP39WordList[wordIndex]
 	}
 
 	// Clear entropy from memory
