@@ -205,14 +205,6 @@ func GenerateMnemonic(entropyBits int) (string, error) {
 		return "", ErrInvalidEntropy
 	}
 
-	// Generate random bytes
-	entropyBytes := entropyBits / 8
-	entropy := make([]byte, entropyBytes)
-	_, err := rand.Read(entropy)
-	if err != nil {
-		return "", fmt.Errorf("failed to generate entropy: %w", err)
-	}
-
 	// BIP-39 standard word count based on entropy
 	var wordCount int
 	switch entropyBits {
@@ -231,14 +223,32 @@ func GenerateMnemonic(entropyBits int) (string, error) {
 	}
 
 	words := make([]string, wordCount)
+
+	// Generate each word using proper cryptographic randomness
+	// BIP39 has 2048 words, so we need 11 bits per word (2^11 = 2048)
 	for i := 0; i < wordCount; i++ {
-		// Use entropy to select words
-		wordIndex := int(entropy[i%len(entropy)]) % len(BIP39WordList)
+		// Use crypto/rand for each word selection to ensure uniform distribution
+		var wordIndex int
+		for {
+			// Generate enough random bytes for uniform distribution
+			randomBytes := make([]byte, 2) // 16 bits to avoid modulus bias
+			_, err := rand.Read(randomBytes)
+			if err != nil {
+				return "", fmt.Errorf("failed to generate random bytes: %w", err)
+			}
+
+			// Convert to uint16 and check if it's in the uniform range
+			randomValue := uint16(randomBytes[0])<<8 | uint16(randomBytes[1])
+
+			// To avoid modulus bias, only accept values in range [0, 2048*floor(65536/2048))
+			// floor(65536/2048) = 32, so range is [0, 65536)
+			// Since 65536 is evenly divisible by 2048, we can use any value
+			wordIndex = int(randomValue % 2048)
+			break
+		}
+
 		words[i] = BIP39WordList[wordIndex]
 	}
-
-	// Clear entropy from memory
-	secureClear(entropy)
 
 	return strings.Join(words, " "), nil
 }
