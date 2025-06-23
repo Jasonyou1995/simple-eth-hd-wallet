@@ -213,10 +213,21 @@ func GenerateMnemonic(entropyBits int) (string, error) {
 		return "", fmt.Errorf("failed to generate entropy: %w", err)
 	}
 
-	// Simple word selection based on entropy
-	wordCount := entropyBits / 11 // Approximately
-	if wordCount < 12 {
+	// BIP-39 standard word count based on entropy
+	var wordCount int
+	switch entropyBits {
+	case 128:
 		wordCount = 12
+	case 160:
+		wordCount = 15
+	case 192:
+		wordCount = 18
+	case 224:
+		wordCount = 21
+	case 256:
+		wordCount = 24
+	default:
+		return "", ErrInvalidEntropy
 	}
 
 	words := make([]string, wordCount)
