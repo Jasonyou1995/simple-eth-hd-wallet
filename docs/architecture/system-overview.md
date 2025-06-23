@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-The Secure Key Management System (SKMS) is designed as a production-ready, enterprise-grade cryptographic key management solution that provides comprehensive HD wallet functionality, advanced cryptographic operations, and secure key lifecycle management. This document outlines the system architecture, component interactions, and design decisions.
+The Secure Key Management System (SKMS) is designed as a cryptographic key management solution that provides comprehensive HD wallet functionality, advanced cryptographic operations, and secure key lifecycle management. This document outlines the system architecture, component interactions, and design decisions.
 
 ## Architectural Principles
 

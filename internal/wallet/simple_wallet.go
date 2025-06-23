@@ -1,4 +1,4 @@
-// Package wallet implements a modern, production-ready hierarchical deterministic (HD) wallet
+// Package wallet implements a modern, hierarchical deterministic (HD) wallet
 // following BIP-39 standards with enterprise-grade security features.
 //
 // Security Features:

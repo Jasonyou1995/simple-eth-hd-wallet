@@ -1,6 +1,6 @@
 // Package main provides the SKMS (Secure Key Management System) CLI application.
 //
-// SKMS is a production-ready hierarchical deterministic (HD) wallet tool
+// SKMS is a hierarchical deterministic (HD) wallet tool
 // that implements BIP-39 and BIP-44 standards for secure key management.
 package main
 
@@ -52,7 +52,7 @@ Security Warning:
 // printVersion displays version information
 func printVersion() {
 	fmt.Printf("%s v%s\n", appName, version)
-	fmt.Println("Production-ready HD wallet CLI")
+	fmt.Println("HD wallet CLI")
 	fmt.Println("Implements BIP-39 and BIP-44 standards")
 }
 

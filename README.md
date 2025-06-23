@@ -1,6 +1,6 @@
 # SKMS - Secure Key Management System
 
-A production-ready hierarchical deterministic (HD) wallet CLI for Ethereum key management, implementing BIP-39 and BIP-44 standards with enterprise-grade security features.
+A hierarchical deterministic (HD) wallet CLI for Ethereum key management, implementing BIP-39 and BIP-44 standards with enterprise-grade security features.
 
 ## 🔐 Security Features
 

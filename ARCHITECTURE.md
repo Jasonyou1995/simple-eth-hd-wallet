@@ -2,7 +2,7 @@
 
 ## Overview
 
-SKMS (Secure Key Management System) is a production-ready CLI application implementing modern cryptographic best practices for Ethereum HD wallet generation. This document explains the technical architecture, design decisions, and implementation patterns.
+SKMS (Secure Key Management System) is a CLI application implementing modern cryptographic best practices for Ethereum HD wallet generation. This document explains the technical architecture, design decisions, and implementation patterns.
 
 ## 🏗️ Architecture Principles
 
